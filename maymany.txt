@@ -1,0 +1,26 @@
+model Image
+public function products(){
+ return $this->belongsTo('Product','product_image'); //Product: name of model
+}
+
+
+model Product
+public function images(){
+ return $this->belongsToMany('Image','product_image');
+}
+
+
+
+
+products		product_image			images	
+id			id				id
+name			product_id			name
+			image_id
+
+
+controller: 	$product = Product::find(1);  //find product có id là 1
+
+		$product_images = $product ->images()->get();
+
+		truy?n $product_images sang view
+
