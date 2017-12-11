@@ -25,6 +25,7 @@
                         <th>ID</th>
                         <th>Tên thể loại</th>
                         <th>Tên Không dấu</th>
+                        
                         <th>Delete</th>
                         <th>Edit</th>
                     </tr>
@@ -35,6 +36,7 @@
                         <td>{{$st->id}}</td>
                         <td>{{$st->name}}</td>
                         <td>{{$st->short_name}}</td>
+                        
                         <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/style/xoa/{{$st->id}}"> Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/style/sua/{{$st->id}}">Edit</a></td>
                     </tr>

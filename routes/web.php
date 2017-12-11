@@ -15,21 +15,24 @@ use App\Album;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('trangchu');
 });
 
 // Route::get('thu',function(){
 // 	return view('admin.style.danhsach');
 // });
 
+Route::get('admin/dangnhap','UserController@getdangnhapAdmin');
+Route::post('admin/dangnhap','UserController@postdangnhapAdmin');
+Route::get('admin/logout','UserController@getdangxuatAdmin');
 
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 	Route::group(['prefix'=>'style'],function(){
 		// admin/style/danhsach
 		Route::get('danhsach','StyleController@getDanhsach');
 
 		Route::get('sua/{id}','StyleController@getSua');
-		Route::post('sua/{id}','StyleController@getSua');
+		Route::post('sua/{id}','StyleController@postSua');
 
 		Route::get('them','StyleController@getThem');
 		Route::post('them','StyleController@postThem');
@@ -80,7 +83,8 @@ Route::group(['prefix'=>'admin'],function(){
 		// admin/user/danhsach
 		Route::get('danhsach','UserController@getDanhsach');
 
-		Route::get('sua','UserController@getSua');
+		Route::get('sua/{id}','UserController@getSua');
+		Route::post('sua/{id}','UserController@postSua');
 
 		Route::get('them','UserController@getThem');
 		Route::post('them','UserController@postThem');
@@ -89,12 +93,14 @@ Route::group(['prefix'=>'admin'],function(){
 	});
 });
 
-Route::get('trangchu','PagesController@trangchu');
+Route::get('trangchu','PagesController@trangchu')->name('trangchu');
 Route::get('album','PagesController@album');
 Route::get('singer','PagesController@singer');
 Route::get('style','PagesController@style');
 Route::get('contact','PagesController@contact');
-Route::get('song','PagesController@song');
+Route::get('song/{id}/{short-name}.html','PagesController@song');
+Route::get('nguoidung','PagesController@getNguoiDung');
+Route::post('nguoidung','PagesController@postNguoiDung');
 
 
 

@@ -29,21 +29,22 @@ class SingerController extends Controller
     	$Singer->name = $request->ten;
     	
 
-    	if ($request->hasFile('hinh')) {  //ktra có up hình or not
+    	
+      if($request->hasFile('hinh')){
         $file = $request->file('hinh');
-        $duoi = $file->getClientOriginalExtension();  //lấy đuôi file
-        if($duoi != 'jpg' && $duoi != 'png' && $duoi != 'jpeg'){
-          return redirect('admin/singer/them')->with('loi',' Chỉ được chọn file có phần mở rộng là jpg, jpeg, png');
+        $duoi = $file->getClientOriginalExtension('hinh');
+        if($duoi != 'jpg' && $duoi != 'png' && $duoi != jpeg ){
+          return redirect('admin/singer/them')->with('loi','Chỉ được chọn file jpg png hay jpeg');
         }
-        $name = $file->getClientOriginalName();  //lấy tên hình nguyên bản
-        $hinh = str_random(4)."_".$name;  //tên hình khi save lại : "4 ký tự random" + "_" + name nguyên bản
-        while (file_exists("upload/img/singer/".$hinh)) {  //ktra đã tồn tại hình có tên tương tự chưa
-          $hinh = str_random(4)."_".$name;    //thì random tiếp
+        $name= $file->getClientOriginalName();
+        $hinh = str_random(4)."_". $name;
+        while(file_exists("upload/img/singer/".$hinh)){
+          $hinh = str_random(4)."_". $name;
         }
-        $file->move("upload/img/singer/",$hinh);  // move hình đã upload vào folder upload/hinh, save vs tên đã xào nấu ở trên :3
+        $file->move("upload/img/singer",$hinh);
         $Singer->img = $hinh;
       }
-      else {
+      else{
         $Singer->img = "";
       }
 

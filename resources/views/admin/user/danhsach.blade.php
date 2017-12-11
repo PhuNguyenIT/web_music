@@ -40,7 +40,7 @@
                                 <td>{{$us->quyen}}</td>
                                 <td><img width="100px" src="upload/img/user/{{$us->avatar}}" alt="">
                                 <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/user/xoa/{{$us->id}}"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/user/sua/{{$us->id}}">Edit</a></td>
                             </tr>
                             @endforeach
                         </tbody>

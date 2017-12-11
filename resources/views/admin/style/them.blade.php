@@ -32,6 +32,11 @@
                                 <label>Name</label>
                                 <input class="form-control" name="ten" placeholder="Please Enter Style name" />
                             </div>
+
+                            <div class="form-group">
+                                <label>Images</label>
+                                <input type="file" name="hinh">
+                            </div>
                             
                             <button type="submit" class="btn btn-default">Style Add</button>
                             <button type="reset" class="btn btn-default">Reset</button>
