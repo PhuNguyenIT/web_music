@@ -39,7 +39,7 @@
 							<div class="row">
 								@foreach($newalbum as $nea)
 								<div class="col-md-2" style="margin: 5px;">
-									<a  href="album/{{$nea->id}}/{{$nea->short_name}}.html"><img src="upload/img/album/{{$nea->img}}"" style="width:200px;" ></a>
+									<a  href="album/{{$nea->id}}/{{$nea->short_name}}.html"><img src="upload/img/album/{{$nea->img}}" style="width:200px;" ></a>
 									<a class="button play-icon popup-with-zoom-anim" href="#">{{$nea->name}}</a>
 								</div>
 								@endforeach
@@ -60,7 +60,7 @@
 											
 										@foreach($newsinger as $new)
 											<div class="col-md-3 content-grid">
-												<a class="" href="#small-dialog"><img src="upload/img/singer/{{$new->img}}" title="allbum-name"></a>
+												<a class="" href="#small-dialog"><img src="upload/img/singer/{{$new->img}}" style="height:250px; width: 250px;  " title="allbum-name"></a>
 												<a class="button play-icon popup-with-zoom-anim" href="#">{{$new->name}}</a>
 											</div>
 										@endforeach

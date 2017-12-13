@@ -64,7 +64,7 @@
                     </div>
                     <div class="form-group">
                       <label>Sound</label>
-                      <input type="file" name="Hinh" class="form-control" />
+                      <input type="file" name="AmThanh" class="form-control" />
                     </div>
 
                     <button type="submit" class="btn btn-default">Thêm</button>

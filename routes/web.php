@@ -98,7 +98,7 @@ Route::get('album','PagesController@album');
 Route::get('singer','PagesController@singer');
 Route::get('style','PagesController@style');
 Route::get('contact','PagesController@contact');
-Route::get('song/{id}/{short-name}.html','PagesController@song');
+Route::get('song/{id}/{short_name}.html','PagesController@song');  //chi tiết song, other song in same album
 Route::get('nguoidung','PagesController@getNguoiDung');
 Route::post('nguoidung','PagesController@postNguoiDung');
 

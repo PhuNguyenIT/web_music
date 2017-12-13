@@ -47,30 +47,28 @@ class SongController extends Controller
       $baihat->idSinger = $request->Singer;
       $baihat->description = $request->Description;
 
-      if ($request->hasFile('Hinh')) {  //ktra có up hình or not
-        $file = $request->file('Hinh');
-        $duoi = $file->getClientOriginalExtension();  //lấy đuôi file
-        if($duoi != 'mp3'){
-          return redirect('admin/song/them')->with('loi',' Chỉ được chọn file có phần mở rộng là mp3');
+      if($request->hasFile('AmThanh')){
+        $file = $request->file('AmThanh');
+        $duoifile = $file->getClientOriginalExtension();
+        if($duoifile != 'mp3'){
+          return redirect('admin/song/them')->with('loi','Chỉ được chọn file mp3');
         }
-        $name = $file->getClientOriginalName();  //lấy tên hình nguyên bản
-        $Hinh = str_random(4)."_".$name;  //tên hình khi save lại : "4 ký tự random" + "_" + name nguyên bản
-        while (file_exists("upload/music/".$Hinh)) {  //ktra đã tồn tại hình có tên tương tự chưa
-          $Hinh = str_random(4)."_".$name;    //thì random tiếp
+        $name = $file->getClientOriginalName();
+
+        $tensoundkhisave = str_random(4)."_".$name;
+        while (file_exists("upload/music/".$tensoundkhisave)){
+            $tensoundkhisave = str_random(4)."_".$name;
         }
-        $file->move("upload/music",$Hinh);  // move hình đã upload vào folder upload/hinh, save vs tên đã xào nấu ở trên :3
-        $baihat->sound = $Hinh;
+        $file->move("upload/music/",$tensoundkhisave);
+        $baihat->sound = $tensoundkhisave;
       }
-      else {
-        $baihat->sound = "";
-        // return redirect('admin/song/them')->with('loi','Phải chọn file sound');
+      else{
+        return redirect('admin/song/them')->with('loi','Phải chọn file âm thanh');
       }
 
       $baihat->save();
       
       return redirect('admin/song/them')->with('thongbao','Thêm thành công');
-
-
     }
 
     public function getSua($id){

@@ -40,15 +40,24 @@
 								  <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
 									<div class="browse-inner">
 								 	 <!-- /agileits -->
-								
+								@foreach($album as $al)
 									<div class="col-md-3 artist-grid">
-										<a  href="single.html"><img src="images/a3.jpg" title="allbum-name"></a>
+										<a  href="single.html"><img src="upload/img/album/{{$al->img}}" title="allbum-name"></a>
 										<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-										<a class="art" href="single.html">Sukhwinder singh</a>
+										<a class="art" href="single.html">{{$al->name}}</a>
 									</div>
-												
-									
+								@endforeach
 									<div class="clearfix"> </div>
+
+									<div class="row">
+										<div class="col-md-4 col-xs-4">
+											
+										</div>
+										<div>
+											{{$album->links()}}
+										</div>
+										
+									</div>
 									</div>
 								  </div>
 								</div>

@@ -32,12 +32,13 @@ class PagesController extends Controller
 	}
 
 	function album(){
-		// $album=Album::all()->paginate(24);    //24 album per page
-		return view('pages.album');  
+		$album=Album::paginate(36);  //36 album per page
+		return view('pages.album',['album'=>$album]);  
 	}
 
 	function singer(){
-		return view('pages.singer');
+    $singer=Singer::paginate(24);
+		return view('pages.singer',['singer'=>$singer]);
 	}
 
 	function contact(){
@@ -45,11 +46,15 @@ class PagesController extends Controller
 	}
 
 	function style(){
-		return view('pages.style');
+    $style=Style::paginate(24);
+		return view('pages.style',['style'=>$style]);
 	}
 
-	function song(){
-		return view('pages.song');
+	function song($id){
+    $Album = Album::find($id);  //tìm album có id cần tìm
+    $songsamealbum = Song::where('idAlbum',$Album->id)->limit(10)->get(); //tìm all song in cùng album
+
+		return view('pages.song',['songsamealbum'=>$songsamealbum,'Album'=>$Album]);
 	}
 
 	function getNguoiDung(){
