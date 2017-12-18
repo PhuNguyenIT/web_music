@@ -10,10 +10,12 @@
 				</div>
 			
 					 <div class="footer-grid footer-grid_last">
-						<h3>About Us</h3>
-						<p class="footer_desc">Diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat enim ad minim veniam,.</p>
-						<p class="f_text">Phone:  &nbsp;&nbsp;&nbsp;00-250-2131</p>
-						<p class="email">Email : &nbsp;<span><a href="mailto:phu849@gmail.com">phu849@gmail.com</a></span></p>	
+						<h3>About Me</h3>
+						<p class="footer_desc">   </p>
+						<p class="f_text">Phone:  &nbsp;&nbsp;&nbsp;0906 101 628</p>
+						<p class="email">Email : &nbsp;<span><a href="mailto:phu849@gmail.com">
+						phu849@gmail.com</a></span></p>	
+						
 					 </div>
 					 <div class="clearfix"> </div>
 				</div>

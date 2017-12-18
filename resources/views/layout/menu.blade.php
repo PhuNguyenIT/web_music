@@ -1,11 +1,11 @@
 <div class="left-side sticky-left-side">
 
 			<!--logo and iconic logo start-->
-			<div class="logo">
-				<h1><a href="trangchu">Mosai<span>c</span></a></h1>
+			<div class="logo" style="background-color: black">
+				<h1><a href="trangchu"><img src="images/logo.png" alt="" style="height: 26px;"></a></h1>
 			</div>
 			<div class="logo-icon text-center">
-				<a href="trangchu">M </a>
+				<a href="trangchu">P </a>
 			</div>
  	 <!-- /w3l-agile -->
 			<!--logo and iconic logo end-->

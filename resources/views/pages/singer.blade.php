@@ -42,9 +42,9 @@
 								 	 <!-- /agileits -->
 								@foreach($singer as $si)
 									<div class="col-md-3 artist-grid">
-										<a  href="single.html"><img src="upload/img/singer/{{$si->img}}" title="singer-name" style="height: 200px"></a>
-										<a href="single.html"><i class="glyphicon glyphicon-play-circle"></i></a>
-										<a class="art" href="single.html">{{$si->name}}</a>
+										<a  href="songsinger/{{$si->id}}.html"><img src="upload/img/singer/{{$si->img}}" title="singer-name" style="height: 200px"></a>
+										<a href="songsinger/{{$si->id}}.html"><i class="glyphicon glyphicon-play-circle"></i></a>
+										<a class="art" href="songsinger/{{$si->id}}.html">{{$si->name}}</a>
 									</div>
 								@endforeach
 									<div class="clearfix"> </div>

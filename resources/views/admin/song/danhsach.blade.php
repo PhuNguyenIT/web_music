@@ -23,8 +23,7 @@
                                 <th>Name</th>
                                 <th>Short name</th>
                                 <th>Singer</th>
-                                <th>Listener number</th>
-                             <!--    <th>Play </th> -->
+                                <th>Play </th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>
@@ -38,15 +37,11 @@
                                 <td>
                                 {{$so->Singer->name}}
                                 </td>
-                                <td>{{$so->count}}</td>
-
-                               <!--  <td>
+                                <td>
                                     <audio controls>
-                                        <source src="upload/music/{{$so->sound}}" type="audio/ogg"/>
                                         <source src="upload/music/{{$so->sound}}" type="audio/mpeg">
                                     </audio>
                                 </td>
- -->
 
                                 <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/song/xoa/{{$so->id}}"> Delete</a></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/song/sua/{{$so->id}}">Edit</a></td>

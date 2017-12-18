@@ -25,14 +25,14 @@ class PagesController extends Controller
     }
   
 	function trangchu(){
-		$newalbum = Album::orderBy('id','desc')->limit(8)->get();
+		$newalbum = Album::orderBy('id','desc')->limit(15)->get();
 		$newsinger = Singer::orderBy('id','desc')->limit(8)->get();
     $style = Style::all();
 		return view('pages.trangchu',['newalbum'=>$newalbum,'newsinger'=>$newsinger,'style'=>$style]);
 	}
 
 	function album(){
-		$album=Album::paginate(36);  //36 album per page
+		$album=Album::paginate(12);  
 		return view('pages.album',['album'=>$album]);  
 	}
 
@@ -50,12 +50,26 @@ class PagesController extends Controller
 		return view('pages.style',['style'=>$style]);
 	}
 
-	function song($id){
+	function songalbum($id){
     $Album = Album::find($id);  //tìm album có id cần tìm
     $songsamealbum = Song::where('idAlbum',$Album->id)->limit(10)->get(); //tìm all song in cùng album
 
-		return view('pages.song',['songsamealbum'=>$songsamealbum,'Album'=>$Album]);
+		return view('pages.songalbum',['songsamealbum'=>$songsamealbum,'Album'=>$Album]);
 	}
+
+  function songsinger($id){
+    $Singer = Singer::find($id);  //tìm singer có id cần tìm
+    $songsamesinger = Song::where('idSinger',$Singer->id)->limit(10)->get(); //tìm all song in cùng singer
+
+    return view('pages.songsinger',['songsamesinger'=>$songsamesinger,'Singer'=>$Singer]);
+  }
+
+  function songstyle($id){
+    $Style = Style::find($id);  //tìm style có id cần tìm
+    $songsamestyle = Song::where('idStyle',$Style->id)->paginate(20); //tìm all song in cùng style
+
+    return view('pages.songstyle',['songsamestyle'=>$songsamestyle,'Style'=>$Style]);
+  }
 
 	function getNguoiDung(){
     $user = Auth::user();
@@ -107,6 +121,12 @@ class PagesController extends Controller
       $user->save();
 
       return redirect('nguoidung')->with('thongbao','Sửa thành công');
+  }
+
+  function timkiem(Request $request){
+    $tukhoa = $request->tukhoa;
+    $ketqua = Song::where('name','like',"%$tukhoa%")->take(30)->paginate(10);
+    return view('pages.timkiem',['tukhoa'=>$tukhoa,'ketqua'=>$ketqua]);
   }
 
     

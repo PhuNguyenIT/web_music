@@ -39,8 +39,8 @@
 							<div class="row">
 								@foreach($newalbum as $nea)
 								<div class="col-md-2" style="margin: 5px;">
-									<a  href="album/{{$nea->id}}/{{$nea->short_name}}.html"><img src="upload/img/album/{{$nea->img}}" style="width:200px;" ></a>
-									<a class="button play-icon popup-with-zoom-anim" href="#">{{$nea->name}}</a>
+									<a  href="songalbum/{{$nea->id}}/{{$nea->short_name}}.html"><img src="upload/img/album/{{$nea->img}}" style="width:200px;" ></a>
+									<a class="button play-icon " href="songalbum/{{$nea->id}}/{{$nea->short_name}}.html">{{$nea->name}}</a>
 								</div>
 								@endforeach
 							</div>
@@ -60,7 +60,7 @@
 											
 										@foreach($newsinger as $new)
 											<div class="col-md-3 content-grid">
-												<a class="" href="#small-dialog"><img src="upload/img/singer/{{$new->img}}" style="height:250px; width: 250px;  " title="allbum-name"></a>
+												<a class="" href="songsinger/{{$new->id}}.html"><img src="upload/img/singer/{{$new->img}}" style="height:250px; width: 250px;  " title="allbum-name"></a>
 												<a class="button play-icon popup-with-zoom-anim" href="#">{{$new->name}}</a>
 											</div>
 										@endforeach
@@ -77,19 +77,19 @@
 						
 						<div class="review-slider">
 								<div class="tittle-head">
-									<h3 class="tittle">Featured Albums <span class="new"> New</span></h3>
+									<h3 class="tittle">Style <span class="new"> New</span></h3>
 									<div class="clearfix"> </div>
 								</div>
 								 <ul id="flexiselDemo1">
 
 							@foreach($style as $s)
 								<li>
-									<a href="single.html"><img src="upload/img/style/{{$s->img}}" alt=""/></a>
+									<a href="songstyle/{{$s->id}}/{{$s->short_name}}.html"><img src="upload/img/style/{{$s->img}}" alt="" style="height: 210px;" /></a>
 									<div class="slide-title"><h4>{{$s->name}} </div>
 									<div class="date-city">
 										
 										<div class="buy-tickets">
-											<a href="single.html">LISTEN NOW</a>
+											<a href="songstyle/{{$s->id}}/{{$s->short_name}}.html">LISTEN NOW</a>
 										</div>
 									</div>
 								</li>
